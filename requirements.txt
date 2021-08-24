@@ -1,8 +1,10 @@
 tensorflow-gpu==1.14.0
 tensorflow==1.14.0
+keras==2.2.5
 numpy==1.16
 torchvision==0.7
 matplotlib
 boltons
 opencv-python
 tqdm
+h5py==2.10

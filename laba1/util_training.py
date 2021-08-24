@@ -3,10 +3,6 @@ from time import time
 
 from tensorflow.keras.callbacks import EarlyStopping
 
-# import sys
-# sys.path.insert(1, '../text_recognizer')
-# sys.path.append('/home/sidorkoda/workspace/full%20stack/fsdl-text-recognizer-project/lab1/text_recognizer')
-
 from datasets.dataset import Dataset
 from models.base import Model
 
@@ -20,7 +16,6 @@ def train_model(model: Model, dataset: Dataset, epochs: int, batch_size: int, us
     if EARLY_STOPPING:
         early_stopping = EarlyStopping(monitor="val_loss", min_delta=0.01, patience=3, verbose=1, mode="auto")
         callbacks.append(early_stopping)
-
 
     model.network.summary()
 

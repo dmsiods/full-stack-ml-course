@@ -89,17 +89,13 @@ def _parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--gpu", type=int, default=0, help="Provide index of GPU to use.")
     parser.add_argument(
-        "--save",
-        default=True,
-        dest="save",
-        action="store_true",
+        "--save", default=True, dest="save", action="store_true",
         help="If true, then final weights will be saved to canonical, version-controlled location",
     )
     parser.add_argument(
         "--experiment_config",
         default='{"dataset": "EmnistDataset", "model": "CharacterModel", "network": "mlp"}',
-        type=str,
-        help='Experimenet JSON (\'{"dataset": "EmnistDataset", "model": "CharacterModel", "network": "mlp"}\'',
+        type=str, help='Experimenet JSON',
     )
     parser.add_argument(
         "--nowandb", default=False, action="store_true", help="If true, do not use wandb for this run",
@@ -111,8 +107,9 @@ def _parse_args():
 def main():
     """Run experiment."""
     args = _parse_args()
-
     experiment_config = json.loads(args.experiment_config)
+    with open('laba1/config.json') as f: # странно, иногда просто config.json норм
+        experiment_config = json.load(f)
     os.environ["CUDA_VISIBLE_DEVICES"] = f"{args.gpu}"
     run_experiment(experiment_config, args.save, args.gpu, use_wandb=not args.nowandb)
 

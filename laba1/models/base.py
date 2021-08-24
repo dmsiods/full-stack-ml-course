@@ -94,8 +94,8 @@ class Model:
     def metrics(self):  # pylint: disable=no-self-use
         return ["accuracy"]
 
-    def load_weights(self):
-        self.network.load_weights(self.weights_filename)
+    def load_weights(self, weights_path):
+        self.network.load_weights(weights_path) # self.weights_filename
 
     def save_weights(self):
         self.network.save_weights(self.weights_filename)
