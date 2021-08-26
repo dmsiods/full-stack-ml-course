@@ -9,7 +9,6 @@ data
 get-pip.py
 .ipynb_checkpoints
 .vscode
-*.ipynb
 *.pth
 *.onnx
 *.weights
