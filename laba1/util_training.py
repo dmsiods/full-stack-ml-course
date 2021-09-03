@@ -14,7 +14,7 @@ def train_model(model: Model, dataset: Dataset, epochs: int, batch_size: int, us
     callbacks = []
 
     if EARLY_STOPPING:
-        early_stopping = EarlyStopping(monitor="val_loss", min_delta=0.01, patience=3, verbose=1, mode="auto")
+        early_stopping = EarlyStopping(monitor="val_loss", min_delta=0.01, patience=7, verbose=1, mode="auto")
         callbacks.append(early_stopping)
 
     model.network.summary()

@@ -20,7 +20,7 @@ def create_emnist_support_files():
     dataset = EmnistDataset()
     dataset.load_or_generate_data()
 
-    for ind in list(range(3, dataset.x_test.shape[0], 10000)):
+    for ind in list(range(4, dataset.x_test.shape[0], 10000)):
         image = dataset.x_test[ind]
         label = dataset.mapping[np.argmax(dataset.y_test[ind])]
         print(ind, label)
